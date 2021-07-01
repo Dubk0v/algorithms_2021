@@ -34,3 +34,49 @@ hx = HexNumber
 hx + hx
 hex()
 """
+from collections import defaultdict
+from functools import reduce
+# Вариант решения ООП
+
+
+class HexNumber:
+    def __init__(self, hex_num):
+        self.hex_num = hex_num
+
+    def __add__(self, other):
+        return list(hex(int(self.hex_num, 16) + int(other.hex_num, 16))[2:].upper())
+
+    def __mul__(self, other):
+        return list(hex(int(self.hex_num, 16) * int(other.hex_num, 16))[2:].upper())
+
+    def __str__(self):
+        return f'{list(self.hex_num)}'
+
+
+a = HexNumber('A2')
+b = HexNumber('C4F')
+
+print(a)
+print(b)
+print(a + b)
+print(a * b)
+print(a + a)
+
+# Вариант решения через defaultdict
+
+
+def hexnumber(hx):
+    return f'Сумма чисел: ' \
+           f'{list(reduce(lambda x, y: hex(int(x, 16) + int(y, 16)), map("".join, hx.values())).upper())[2:]}\n' \
+           f'Произведение:' \
+           f' {list(reduce(lambda x, y: hex(int(x, 16) * int(y, 16)), map("".join, hx.values())).upper())[2:]}'
+
+
+d = defaultdict(list)
+
+
+num = input('Введите числа в 16ом формате через пробел: ').upper().split()
+for el in num:
+    d[el] = list(el)
+
+print(hexnumber(d))
