@@ -1,0 +1,114 @@
+Index: Урок 5. Практическое задание/task_1.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\"\"\"\n1.\tПользователь вводит данные о количестве предприятий, их наименования и прибыль\nза 4 квартала (т.е. 4 отдельных числа) для каждого предприятия.\nПрограмма должна определить среднюю прибыль (за год для всех предприятий)\nи вывести наименования предприятий, чья прибыль выше среднего и отдельно\nвывести наименования предприятий, чья прибыль ниже среднего.\n\nПодсказка:\nДля решения задачи обязательно примените какую-нибудь коллекцию из модуля collections.\n\nПример:\nВведите количество предприятий для расчета прибыли: 2\nВведите название предприятия: Фирма_1\nчерез пробел введите прибыль данного предприятия\nза каждый квартал(Всего 4 квартала): 235 345634 55 235\n\nВведите название предприятия: Фирма_2\nчерез пробел введите прибыль данного предприятия\nза каждый квартал(Всего 4 квартала): 345 34 543 34\n\nСредняя годовая прибыль всех предприятий: 173557.5\nПредприятия, с прибылью выше среднего значения: Фирма_1\n\nПредприятия, с прибылью ниже среднего значения: Фирма_2\n\"\"\"\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Урок 5. Практическое задание/task_1.py b/Урок 5. Практическое задание/task_1.py
+--- a/Урок 5. Практическое задание/task_1.py	
++++ b/Урок 5. Практическое задание/task_1.py	
+@@ -23,3 +23,80 @@
+ 
+ Предприятия, с прибылью ниже среднего значения: Фирма_2
+ """
++from collections import namedtuple, defaultdict
++
++# companies = []
++# Comp = namedtuple('Comp', 'name, total')
++# comp_qty = 0
++#
++# while True:
++#     try:
++#         comp_qty = int(input('enter companies quantity: > '))
++#         break
++#     except Exception as e:
++#         print(e)
++#
++# while True:
++#     try:
++#         for i in range(comp_qty):
++#             comp_name = input(f'enter {i + 1} company name > ')
++#             a, b, c, d = tuple(input('enter company income separated by " " > ').split(sep=' '))
++#             comp_nt = Comp(comp_name, total=int(a) + int(b) + int(c) + int(d))
++#             companies.append(comp_nt)
++#         break
++#     except Exception as e:
++#         print(e)
++#
++# average_income = sum([comp.total for comp in companies]) / len(companies)
++#
++# print(f'average year income per company: {average_income}')
++# print(f'companies above average year income: {[comp.name for comp in companies if comp.total > average_income]}')
++# print(f'companies below average year income: {[comp.name for comp in companies if comp.total < average_income]}')
++
++# Вариант решения через namedtuple
++company = namedtuple('company', 'name profit')
++
++companies_lst = []
++while companies_count == 0:
++    try:
++        companies_count = int(input('Введите количество предприятий для расчета прибыли: '))
++        break
++    except Exception as error:
++        print(error)
++
++while True:
++    try:
++        for i in range(companies_count):
++            name = input('\nВведите название предприятия: ')
++            profit = input('Через пробел введите прибыль данного предприятия '
++                           'за каждый квартал (всего 4 квартала): ')
++            companies_lst.append(company(name, sum(map(int, profit.split()))))
++        break
++    except Exception as error:
++        print(error)
++
++profit_avg = sum(el.profit for el in companies_lst) / companies_count
++
++print('\nСредняя годовая прибыль всех предприятий:', profit_avg)
++print('Предприятия, с прибылью выше среднего значения:',
++      ', '.join(el.name for el in companies_lst if el.profit > profit_avg))
++print('Предприятия, с прибылью ниже среднего значения:',
++      ', '.join(el.name for el in companies_lst if el.profit < profit_avg))
++
++# Вариант решения через defaultdict
++companies_dict = defaultdict(int)
++
++companies_count = int(input('Введите количество предприятий для расчета прибыли: '))
++for i in range(companies_count):
++    name = input('\nВведите название предприятия: ')
++    profit = input('Через пробел введите прибыль данного предприятия '
++                   'за каждый квартал (всего 4 квартала): ')
++    companies_dict[name] = sum(map(int, profit.split()))
++
++profit_avg = sum(companies_dict.values()) / companies_count
++
++print('\nСредняя годовая прибыль всех предприятий:', profit_avg)
++print('Предприятия, с прибылью выше среднего значения:',
++      ', '.join(k for k, v in companies_dict.items() if v > profit_avg))
++print('Предприятия, с прибылью ниже среднего значения:',
++      ', '.join(k for k, v in companies_dict.items() if v < profit_avg))
+\ No newline at end of file
+Index: .idea/algorithms_2021.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<module type=\"PYTHON_MODULE\" version=\"4\">\n  <component name=\"NewModuleRootManager\">\n    <content url=\"file://$MODULE_DIR$\" />\n    <orderEntry type=\"inheritedJdk\" />\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\n  </component>\n  <component name=\"PyDocumentationSettings\">\n    <option name=\"format\" value=\"PLAIN\" />\n    <option name=\"myDocStringFormat\" value=\"Plain\" />\n  </component>\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/algorithms_2021.iml b/.idea/algorithms_2021.iml
+--- a/.idea/algorithms_2021.iml	
++++ b/.idea/algorithms_2021.iml	
+@@ -1,10 +1,5 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<module type="PYTHON_MODULE" version="4">
+-  <component name="NewModuleRootManager">
+-    <content url="file://$MODULE_DIR$" />
+-    <orderEntry type="inheritedJdk" />
+-    <orderEntry type="sourceFolder" forTests="false" />
+-  </component>
++<module version="4">
+   <component name="PyDocumentationSettings">
+     <option name="format" value="PLAIN" />
+     <option name="myDocStringFormat" value="Plain" />
