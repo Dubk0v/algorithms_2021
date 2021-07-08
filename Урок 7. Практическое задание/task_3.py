@@ -49,7 +49,7 @@ def sort_median(data):
 
 def max_remove_median(data):
     median_value = data[0]
-    for i in range(0, len(data) // 2 + 1):
+    for i in range(0, seq_size + 1):              #range(0, len(data) // 2 + 1):
         median_value = max(data)
         data.remove(median_value)
     return median_value
@@ -60,7 +60,7 @@ def heapify_median(data):
 
 
 def shell_median(data):
-    inc = len(data) // 2
+    inc = seq_size              #len(data) // 2
     while inc:
         for i, el in enumerate(data):
             while i >= inc and data[i - inc] > el:
