@@ -44,7 +44,7 @@ import heapq
 
 def sort_median(data):
     data.sort()
-    return data[len(data) // 2]
+    return data[seq_size]   #data[len(data) // 2]
 
 
 def max_remove_median(data):
@@ -56,7 +56,7 @@ def max_remove_median(data):
 
 
 def heapify_median(data):
-    return heapq.nlargest(len(data) // 2 + 1, data).pop()
+    return heapq.nlargest(seq_size + 1, data).pop()     #heapq.nlargest(len(data) // 2 + 1, data).pop()
 
 
 def shell_median(data):
@@ -68,7 +68,7 @@ def shell_median(data):
                 i -= inc
             data[i] = el
         inc //= 2
-    return data[len(data) // 2]
+    return data[seq_size]       #data[len(data) // 2]
 
 
 def gnome_median(data):
@@ -81,7 +81,7 @@ def gnome_median(data):
             i -= 1
             if i == 0:
                 i, j = j, j + 1
-    return data[len(data) // 2]
+    return data[seq_size]       #data[len(data) // 2]
 
 
 def quick_median(data, i):
@@ -115,7 +115,7 @@ def lst_median(arr):
 
 
 iterations = 100
-seq_size = 777
+seq_size = 777  #int(input('Введите размер массива (натуральное число): '))
 test_list = [randint(1, 10000) for i in range(2 * seq_size + 1)]
 print(f"{test_list}")
 print(f"Функция median, медиана -> {median(test_list.copy())} время -> "
@@ -134,3 +134,19 @@ print(f"Функция quick_median, медиана -> {quick_median(test_list.c
       f"{timeit(lambda: quick_median(test_list.copy(), len(test_list) // 2), number=iterations)}")
 print(f"Функция lst_median, медиана -> {lst_median(test_list.copy())} время -> "
       f"{timeit(lambda: lst_median(test_list.copy()), number=iterations)}")
+
+'''
+Функция sort_median, медиана -> 5100 время -> 0.016965259999999996
+Функция median, медиана -> 5100 время -> 0.022283799
+Функция quick_median, медиана -> 5100 время -> 0.0703978929999991
+Функция heapify_median, медиана -> 5100 время -> 0.08682593899999969
+Функция shell_median, медиана -> 5100 время -> 0.8522342799999998
+Функция max_remove_median, медиана -> 5100 время -> 2.850784668
+Функция lst_median, медиана -> 5100 время -> 11.443147496000002
+Функция gnome_median, медиана -> 5100 время -> 32.497636017
+
+расставил по скорости выполнения. 
+1 вариант самый просто и самый эффективный
+следом встроенная функция
+предложено много вариантов с разным решением если брать те что соответствуют требованиям то рекурсия выигрывает.
+'''

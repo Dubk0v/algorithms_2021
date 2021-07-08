@@ -4,7 +4,6 @@
     <list default="true" id="7aa6eabc-0013-480a-b09f-bb505282a49c" name="Default Changelist" comment="done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Урок 7. Практическое задание/task_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Урок 7. Практическое задание/task_1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Урок 7. Практическое задание/task_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Урок 7. Практическое задание/task_2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Урок 7. Практическое задание/task_3.py" beforeDir="false" afterPath="$PROJECT_DIR$/Урок 7. Практическое задание/task_3.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,7 +50,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.task_3 (1)">
+  <component name="RunManager" selected="Python.task_1 (1)">
     <configuration name="task_1 (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="algorithms_2021" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -159,9 +158,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.task_1 (1)" />
         <item itemvalue="Python.task_3 (1)" />
         <item itemvalue="Python.task_2 (1)" />
-        <item itemvalue="Python.task_1 (1)" />
         <item itemvalue="Python.task_1" />
         <item itemvalue="Python.task_2" />
       </list>
@@ -197,7 +196,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625492379313</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="done">
+      <created>1625672395011</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1625672395011</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

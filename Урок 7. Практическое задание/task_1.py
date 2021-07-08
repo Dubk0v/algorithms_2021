@@ -45,30 +45,46 @@ def bubble_sort_opt(lst_obj):
     return lst_obj
 
 
+# lst_rnd = [randint(-100, 100) for _ in range(200)]
+# lst_opt = [el for el in range(200, 0, -1)]
+# lst_neg = [el for el in range(200)]
+
+lst_10 = [randint(-100, 100) for _ in range(10)]
+lst_100 = [randint(-100, 100) for _ in range(100)]
+lst_1000 = [randint(-100, 100) for _ in range(1000)]
+
+print('Замеры на массиве -> lst_10')
+# print(lst_rnd)
+# print(bubble_sort(lst_rnd))
+# print(bubble_sort_opt(lst_rnd))
+print(timeit('bubble_sort(lst_10[:])', number=1000, globals=globals()))
+print(timeit('bubble_sort_opt(lst_10[:])', number=1000, globals=globals()))
+print('\nЗамеры на массиве -> lst_100')
+# print(lst_opt)
+# print(bubble_sort(lst_opt))
+# print(bubble_sort_opt(lst_opt))
+print(timeit('bubble_sort(lst_100[:])', number=1000, globals=globals()))
+print(timeit('bubble_sort_opt(lst_100[:])', number=1000, globals=globals()))
+print('\nЗамеры на массиве -> lst_1000')
+# print(lst_neg)
+# print(bubble_sort(lst_neg))
+# print(bubble_sort_opt(lst_neg))
+print(timeit('bubble_sort(lst_1000[:])', number=1000, globals=globals()))
+print(timeit('bubble_sort_opt(lst_1000[:])', number=1000, globals=globals()))
+
+'''
+lst_10 = [randint(-100, 100) for _ in range(10)]
+lst_100 = [randint(-100, 100) for _ in range(100)]
+lst_1000 = [randint(-100, 100) for _ in range(1000)]
+
+тогда смысл в доработке уходит, так как она становится бесполезной, 
+ее эффективность видна только на малых массивах. да и та совсем незначительная.
+'''
+'''
 lst_rnd = [randint(-100, 100) for _ in range(200)]
 lst_opt = [el for el in range(200, 0, -1)]
 lst_neg = [el for el in range(200)]
 
-print('Замеры на массиве -> lst_rnd')
-# print(lst_rnd)
-# print(bubble_sort(lst_rnd))
-# print(bubble_sort_opt(lst_rnd))
-print(timeit('bubble_sort(lst_rnd[:])', number=1000, globals=globals()))
-print(timeit('bubble_sort_opt(lst_rnd[:])', number=1000, globals=globals()))
-print('\nЗамеры на массиве -> lst_opt')
-# print(lst_opt)
-# print(bubble_sort(lst_opt))
-# print(bubble_sort_opt(lst_opt))
-print(timeit('bubble_sort(lst_opt[:])', number=1000, globals=globals()))
-print(timeit('bubble_sort_opt(lst_opt[:])', number=1000, globals=globals()))
-print('\nЗамеры на массиве -> lst_neg')
-# print(lst_neg)
-# print(bubble_sort(lst_neg))
-# print(bubble_sort_opt(lst_neg))
-print(timeit('bubble_sort(lst_neg[:])', number=1000, globals=globals()))
-print(timeit('bubble_sort_opt(lst_neg[:])', number=1000, globals=globals()))
-
-'''
 Сортировка по убыванию. Оптимизация пузырьковой сортировки, согласно заданию.
 Исходя из полученных результатов видно, у вариантов lst_rnd и lst_neg результаты схожи, 
 а у варианта lst_opt массив доработана сортировка пузырьком работает быстрее,
